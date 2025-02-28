@@ -1,0 +1,3 @@
+.qst-custom-toaster {
+    @apply flex flex-col gap-5 w-80 fixed left-1/2 top-5 -ml-40 z-50;
+}

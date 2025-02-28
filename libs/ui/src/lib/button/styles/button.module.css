@@ -1,0 +1,3 @@
+.qst-loading-button {
+    @apply animate-spin w-5 h-5;
+}
