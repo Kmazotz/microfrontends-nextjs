@@ -20,6 +20,7 @@ const remotes = (isServer) => {
 const nextConfig = {
   nx: { svgr: false },
   transpilePackages: ["@ui"],
+  productionBrowserSourceMaps: true,
   webpack: (config, options) => {
     config.plugins.push(
         new NextFederationPlugin({

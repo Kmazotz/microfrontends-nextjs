@@ -19,11 +19,10 @@ const remotes = (isServer) => {
  **/
 const nextConfig = {
   nx: {
-    // Set this to true if you would like to use SVGR
-    // See: https://github.com/gregberge/svgr
     svgr: false,
   },
   transpilePackages: ["@ui"],
+  productionBrowserSourceMaps: true,
   webpack: (config, options) => {
     config.plugins.push(
         new NextFederationPlugin({
