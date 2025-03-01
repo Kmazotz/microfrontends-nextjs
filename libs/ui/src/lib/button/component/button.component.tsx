@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import styles from "../styles/button.module.css";
+
 import { forwardRef} from "react";
 import { LoadingButtonProps } from "../props/button.props";
 import React from "react";
 import { DynamicIcon } from "../../icons";
-import styles from "../styles/button.module.css";
 
 export const LoadingButton = forwardRef<HTMLButtonElement, LoadingButtonProps>((
     {

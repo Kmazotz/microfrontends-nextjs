@@ -10,7 +10,7 @@ const remotes = (isServer) => {
   const location = isServer ? 'ssr' : 'chunks';
 
   return {
-    main: `main@http://localhost:3000/_next/static/${location}/remoteEntry.js`,
+    main: `main-app@http://localhost:3000/_next/static/${location}/remoteEntry.js`,
   };
 }
 
@@ -24,9 +24,10 @@ const nextConfig = {
   transpilePackages: ["@ui"],
   productionBrowserSourceMaps: true,
   webpack: (config, options) => {
+    config.output.uniqueName = 'management-app';
     config.plugins.push(
         new NextFederationPlugin({
-          name: 'management',
+          name: 'management-app',
           filename: 'static/chunks/remoteEntry.js',
           remotes: remotes(options.isServer),
           extraOptions:{},
@@ -41,9 +42,6 @@ const nextConfig = {
   }
 };
 
-const plugins = [
-  // Add more Next.js plugins to this list if needed.
-  withNx,
-];
+const plugins = [ withNx ];
 
 module.exports = composePlugins(...plugins)(nextConfig);

@@ -3,20 +3,15 @@
 import { LoadingButton } from "@portal-ncs-frontend/ui";
 import Styles from "./welcome.module.css";
 import { useCallback } from "react";
-//import { useToastStore } from "main/toastStore";
+import { useToastStore } from "main/toastStore";
 
 export default function WelcomePage() {
 
-    //const { addToast, toasts } = useToastStore();
+    const { addToast } = useToastStore();
 
     const handleButtonClick = useCallback(async () => {
-        alert("¡Desde el Sitio B!");
-        //addToast({message: "¡Desde el Sitio B!", type: "info" });
-    }, []);
-
-    // useEffect(() => {
-    //     console.log(toasts);
-    // }, [toasts]);
+        addToast({message: "¡Desde el Sitio B!", type: "info" });
+    }, [addToast]);
 
     return (
         <div className="wrapper">

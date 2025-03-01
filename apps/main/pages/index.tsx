@@ -1,19 +1,7 @@
 
-import { useToastStore } from "../stores/toast.store";
 import Welcome from "./welcome";
-import { useCallback, useEffect } from "react";
 
 export function Index() {
-  
-  const addToast = useToastStore((state) => state.addToast);
-
-  const test = useCallback(async () => {
-      await new Promise(resolve => setTimeout(resolve, 3000));
-      addToast({message: "¡Desde el Sitio A!", type: "info" });
-  }, [addToast]);
-
-  useEffect(() => {test()}, [test]);
-
   return (
     <div>
       <div className="wrapper">

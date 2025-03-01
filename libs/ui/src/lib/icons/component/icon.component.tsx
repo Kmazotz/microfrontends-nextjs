@@ -1,9 +1,11 @@
+
+import styles from "../styles/icon.module.css";
+
 import { forwardRef, cloneElement } from "react";
 import * as Icons from "react-icons/pi";
 import { DynamicIconProps } from "../props/icon.props";
-import styles from "../styles/icon.module.css";
 
-export const DynamicIcon = forwardRef<SVGSVGElement, DynamicIconProps>(({ className = "", name, ...props }, ref) => {
+export const DynamicIcon = forwardRef<SVGSVGElement, DynamicIconProps>(({ className = "w-4 h-4", name, ...props }, ref) => {
     const IconComponent = Icons[name as keyof typeof Icons];
 
     if (!IconComponent) {

@@ -1,12 +1,14 @@
+import Styles from "../styles/toast.module.css";
+
 import { forwardRef, useEffect, useState } from "react";
 import { ToastProps } from "../props/toast.props";
-import Styles from "../styles/toast.module.css";
 import { DynamicIcon } from "../../../icons";
 import clsx from "clsx";
 
 export const Toast = forwardRef<HTMLDivElement, ToastProps>((props, ref) => {
     const { config, actions } = props;
     const { id, message, type = "info" } = config;
+    const { removeToast } = actions;
 
     const [active, setActive] = useState(false);
 
@@ -23,7 +25,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>((props, ref) => {
     }, []);
 
     useEffect(() => {
-        const removeTimeout = setTimeout(() => actions.removeToast(id), 3000);
+        const removeTimeout = setTimeout(() => removeToast(id), 3000);
         return () => clearTimeout(removeTimeout);
     }, [id]);
 
