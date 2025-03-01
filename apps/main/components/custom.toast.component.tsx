@@ -1,6 +1,5 @@
 import { Toaster } from "@portal-ncs-frontend/ui";
 import { FC, useEffect } from "react";
-import { v4 as uuidv4 } from 'uuid';
 import { useToastStore } from "../stores/toast.store";
 
 const CustomToastComponent: FC = () => {
@@ -12,8 +11,7 @@ const CustomToastComponent: FC = () => {
     return (
         <Toaster
             toasts={toasts.map(toast => ({
-                ...toast, 
-                id: uuidv4(),
+                ...toast,
                 type: toast.type ?? "info" 
             }))}
             actions={{ removeToast }}

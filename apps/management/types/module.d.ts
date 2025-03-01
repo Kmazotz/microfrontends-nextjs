@@ -1,6 +1,11 @@
 declare module "main/toastStore" {
     import { UseBoundStore, StoreApi } from "zustand";
-  
+
+    export interface ToastProp{
+      message: string;
+      type?: "info" | "warning" | "error" | "success";
+    }
+
     export interface Toast {
       id?: string;
       message: string;
@@ -9,7 +14,7 @@ declare module "main/toastStore" {
   
     export interface ToastStore {
       toasts: Toast[];
-      addToast: (toast: Toast) => void;
+      addToast: (toast: ToastProp) => void;
       removeToast: (id: string) => void;
     }
   
